@@ -1,0 +1,133 @@
+{
+  "created_at": "2026-09-24T20:20:39.650747+00:00",
+  "pricing_checked": "2026-09-24",
+  "rates": {
+    "openai": {
+      "model": "gpt-4o-mini",
+      "input": 0.15,
+      "output": 0.6,
+      "env": "OPENAI_API_KEY",
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+    },
+    "gemini": {
+      "model": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5,
+      "env": "GOOGLE_API_KEY",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    "anthropic": {
+      "model": "claude-haiku-4-5",
+      "input": 1.0,
+      "output": 5.0,
+      "env": "ANTHROPIC_API_KEY",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+    }
+  },
+  "live": false,
+  "all_live_checks_passed": false,
+  "projected_total_usd": 0.016471,
+  "usage_based_total_usd": null,
+  "note": "Offline projection uses characters/4 + 100 input tokens and 400 output tokens per independent question. Live costs use API token usage at standard list rates, not invoice amounts. Cache discounts, free tiers, taxes and failed/interrupted requests are not accounted for. No automatic retries. A passed check confirms nonempty streaming output and usage, not answer quality.",
+  "cases": [
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "question": "When should pharmacological treatment for adult hypertension start?",
+      "estimated_input_tokens": 1529,
+      "max_output_tokens": 400,
+      "projected_usd": 0.00046935,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "question": "When should pharmacological treatment for adult hypertension start?",
+      "estimated_input_tokens": 1529,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0014587,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5",
+      "question": "When should pharmacological treatment for adult hypertension start?",
+      "estimated_input_tokens": 1529,
+      "max_output_tokens": 400,
+      "projected_usd": 0.003529,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "question": "What is the HEARTS-D first-line treatment for type 2 diabetes?",
+      "estimated_input_tokens": 1384,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0004476,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "question": "What is the HEARTS-D first-line treatment for type 2 diabetes?",
+      "estimated_input_tokens": 1384,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0014152,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5",
+      "question": "What is the HEARTS-D first-line treatment for type 2 diabetes?",
+      "estimated_input_tokens": 1384,
+      "max_output_tokens": 400,
+      "projected_usd": 0.003384,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "question": "How do I connect this assistant to an EHR using FHIR based on these WHO documents?",
+      "estimated_input_tokens": 1743,
+      "max_output_tokens": 400,
+      "projected_usd": 0.00050145,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "question": "How do I connect this assistant to an EHR using FHIR based on these WHO documents?",
+      "estimated_input_tokens": 1743,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0015229,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5",
+      "question": "How do I connect this assistant to an EHR using FHIR based on these WHO documents?",
+      "estimated_input_tokens": 1743,
+      "max_output_tokens": 400,
+      "projected_usd": 0.003743,
+      "api_usage": null,
+      "usage_based_usd": null,
+      "status": "offline_only"
+    }
+  ]
+}

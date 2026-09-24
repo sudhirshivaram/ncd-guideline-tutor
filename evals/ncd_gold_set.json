@@ -1,0 +1,271 @@
+{
+  "name": "NCD gold questions",
+  "description": "Grounded evaluation questions for the WHO NCD Guideline Tutor. expected_doc_ids are catalog ids, not filenames. expected_doc_ids are acceptable document alternatives for hit rate. expected_sources are acceptable (doc_id, 1-based PDF page) alternatives; missing annotations are unscored. ncd_type is a descriptive label; only filters configures retrieval.",
+  "cases": [
+    {
+      "id": "htn-threshold",
+      "question": "At what blood pressure threshold does WHO recommend initiating pharmacological treatment for hypertension in adults?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 9,
+          "evidence_excerpt": "with a confirmed diagnosis of hypertension and systolic blood pressure of ≥140 mmHg or diastolic blood pressure of ≥90 mmHg."
+        },
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 19,
+          "evidence_excerpt": "with a confirmed diagnosis of hypertension and systolic blood pressure of ≥140 mmHg or diastolic blood pressure of ≥90 mmHg."
+        }
+      ]
+    },
+    {
+      "id": "htn-high-risk-130",
+      "question": "Should adults with existing cardiovascular disease and systolic blood pressure 130–139 mmHg receive antihypertensive medication according to WHO?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 19,
+          "evidence_excerpt": "WHO recommends pharmacological antihypertensive treatment of individuals with existing cardiovascular disease and systolic blood pressure of 130–139 mmHg."
+        }
+      ]
+    },
+    {
+      "id": "htn-lab-testing",
+      "question": "Does WHO require laboratory tests before starting pharmacological therapy for hypertension?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 20,
+          "evidence_excerpt": "but only when testing does not delay or impede starting treatment."
+        }
+      ]
+    },
+    {
+      "id": "htn-target-bp",
+      "question": "What target blood pressure does the WHO hypertension guideline recommend for adults on pharmacological treatment?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 28,
+          "evidence_excerpt": "WHO recommends a target blood pressure treatment goal of <140/90 mmHg in all patients with hypertension without comorbidities."
+        }
+      ]
+    },
+    {
+      "id": "htn-combination",
+      "question": "What does WHO say about combination therapy versus monotherapy when starting hypertension treatment?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 25,
+          "evidence_excerpt": "WHO suggests combination therapy, preferably with a single-pill combination (to improve adherence and persistence), as an initial treatment."
+        }
+      ]
+    },
+    {
+      "id": "htn-nonphysician",
+      "question": "Can nonphysician health workers initiate and manage pharmacological treatment of hypertension according to WHO?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 31,
+          "evidence_excerpt": "proper training, prescribing authority, specific management protocols and physician oversight."
+        }
+      ]
+    },
+    {
+      "id": "htn-followup",
+      "question": "How frequently should blood pressure be reassessed after starting or intensifying antihypertensive medication?",
+      "expected_doc_ids": [
+        "who-htn-guideline-2021"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "who-htn-guideline-2021",
+          "page": 29,
+          "evidence_excerpt": "WHO suggests a monthly follow up after initiation or a change in antihypertensive medications until patients reach target."
+        }
+      ]
+    },
+    {
+      "id": "dm-diagnostic-criteria",
+      "question": "What diagnostic criteria and tests does HEARTS-D use to diagnose diabetes?",
+      "expected_doc_ids": [
+        "hearts-d-diabetes-2020"
+      ],
+      "ncd_type": "diabetes",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-d-diabetes-2020",
+          "page": 13,
+          "evidence_excerpt": "Diagnosis of diabetes is based on values of plasma glucose or glycated haemoglobin (HbA1c)."
+        }
+      ]
+    },
+    {
+      "id": "dm-metformin",
+      "question": "What is the recommended initial pharmacological treatment for type 2 diabetes when diet and physical activity are not enough?",
+      "expected_doc_ids": [
+        "hearts-d-diabetes-2020",
+        "hearts-protocols-2018"
+      ],
+      "ncd_type": "diabetes",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-d-diabetes-2020",
+          "page": 14,
+          "evidence_excerpt": "Metformin does not cause weight gain or hypoglycaemia and is the recommended initial treatment for people who do not achieve the desired glycaemic control with diet and physical activity."
+        },
+        {
+          "doc_id": "hearts-protocols-2018",
+          "page": 35,
+          "evidence_excerpt": "Metformin is recommended as the first-line drug in the treatment of diabetes."
+        }
+      ]
+    },
+    {
+      "id": "dm-metformin-contraindications",
+      "question": "When is metformin contraindicated in the HEARTS-D diabetes protocol?",
+      "expected_doc_ids": [
+        "hearts-d-diabetes-2020"
+      ],
+      "ncd_type": "diabetes",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-d-diabetes-2020",
+          "page": 15,
+          "evidence_excerpt": "Metformin is contraindicated in:"
+        }
+      ]
+    },
+    {
+      "id": "dm-activity",
+      "question": "How much weekly physical activity does HEARTS-D recommend for adults with type 2 diabetes?",
+      "expected_doc_ids": [
+        "hearts-d-diabetes-2020"
+      ],
+      "ncd_type": "diabetes",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-d-diabetes-2020",
+          "page": 14,
+          "evidence_excerpt": "Most adults should engage in at least 150 minutes of moderate or vigorous-intensity aerobic activity per week, spread over at least 3 days."
+        }
+      ]
+    },
+    {
+      "id": "dm-insulin-protocol",
+      "question": "What does the HEARTS-D annex say about treating type 2 diabetes with insulin?",
+      "expected_doc_ids": [
+        "hearts-d-diabetes-2020"
+      ],
+      "ncd_type": "diabetes",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-d-diabetes-2020",
+          "page": 29,
+          "evidence_excerpt": "Annex 1: Protocol for treatment of type 2 diabetes mellitus with insulin"
+        }
+      ]
+    },
+    {
+      "id": "hearts-htn-protocol",
+      "question": "What are the sample HEARTS hypertension treatment protocols, including first-line diuretic use?",
+      "expected_doc_ids": [
+        "hearts-protocols-2018"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-protocols-2018",
+          "page": 15,
+          "evidence_excerpt": "The following pages outline sample protocols for managing hypertension, each with a different starting medication."
+        },
+        {
+          "doc_id": "hearts-protocols-2018",
+          "page": 17,
+          "evidence_excerpt": "PRESCRIBE thiazide-like diuretic"
+        }
+      ]
+    },
+    {
+      "id": "hearts-bp-when",
+      "question": "According to HEARTS evidence-based treatment protocols, when should blood pressure be measured?",
+      "expected_doc_ids": [
+        "hearts-protocols-2018"
+      ],
+      "ncd_type": "hypertension",
+      "expected_sources": [
+        {
+          "doc_id": "hearts-protocols-2018",
+          "page": 12,
+          "evidence_excerpt": "Blood pressure measurements should be conducted on adults during routine visits to primary health care facilities, including all adults at first presentation to the facility, and, if normal, periodically thereafter"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-covid",
+      "question": "What is the WHO-recommended nirmatrelvir-ritonavir dosing for outpatient COVID-19 in this NCD corpus?",
+      "expected_doc_ids": [],
+      "unanswerable": true
+    },
+    {
+      "id": "unanswerable-pediatric-cancer-chemo",
+      "question": "What is the exact CHOP chemotherapy dosing schedule for pediatric Burkitt lymphoma in these documents?",
+      "expected_doc_ids": [],
+      "unanswerable": true
+    },
+    {
+      "id": "unanswerable-ehr",
+      "question": "How do I connect this assistant to a hospital EHR using HL7 FHIR based on these WHO PDFs?",
+      "expected_doc_ids": [],
+      "unanswerable": true
+    }
+  ],
+  "annotation_metadata": {
+    "reviewed_on": "2026-09-24",
+    "method": "Assistant review of local PDF text; not independent clinical expert review.",
+    "page_convention": "1-based PDF page index, not printed page labels.",
+    "scope": "Known supporting pages, not an exhaustive list of every valid source. A source hit may cover only part of a multi-part question. Source precision is annotation agreement, not clinical correctness.",
+    "normalization": "Unicode NFKC and collapsed whitespace for excerpt validation.",
+    "documents": {
+      "hearts-protocols-2018": {
+        "filename": "WHO-NMH-NVI-18.2-eng.pdf",
+        "sha256": "c3f4d4f6d6309a0ad629621225b4f7152929fcdb4a9a302676bc6d5b97e4104b"
+      },
+      "hearts-d-diabetes-2020": {
+        "filename": "WHO-UCN-NCD-20.1-eng.pdf",
+        "sha256": "71b216b19a227e73e0e624274974571a3530e30a0db37a3d10b6d179eefac008"
+      },
+      "who-htn-guideline-2021": {
+        "filename": "9789240033986-eng.pdf",
+        "sha256": "57f6376d5c9bc4ea6c44873625547c8a5443d5a6ad8c8c422733681563db05fb"
+      }
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": 2,
+  "provider": null,
+  "model": null,
+  "retrieval": {
+    "document_hit_rate_at_5": 1.0,
+    "mrr": 0.964,
+    "k": 5,
+    "n": 14,
+    "cases": [
+      {
+        "id": "htn-threshold",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "htn-high-risk-130",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "htn-lab-testing",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "htn-target-bp",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "htn-combination",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "htn-nonphysician",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "htn-followup",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "who-htn-guideline-2021",
+          "hearts-protocols-2018",
+          "who-htn-guideline-2021"
+        ]
+      },
+      {
+        "id": "dm-diagnostic-criteria",
+        "hit_at_k": true,
+        "rank": 2,
+        "retrieved_docs": [
+          "hearts-protocols-2018",
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-protocols-2018",
+          "hearts-d-diabetes-2020"
+        ]
+      },
+      {
+        "id": "dm-metformin",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-protocols-2018",
+          "hearts-d-diabetes-2020"
+        ]
+      },
+      {
+        "id": "dm-metformin-contraindications",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-protocols-2018",
+          "hearts-d-diabetes-2020"
+        ]
+      },
+      {
+        "id": "dm-activity",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-protocols-2018",
+          "hearts-protocols-2018",
+          "hearts-protocols-2018"
+        ]
+      },
+      {
+        "id": "dm-insulin-protocol",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-d-diabetes-2020",
+          "hearts-protocols-2018"
+        ]
+      },
+      {
+        "id": "hearts-htn-protocol",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "hearts-protocols-2018",
+          "hearts-protocols-2018",
+          "hearts-protocols-2018",
+          "hearts-protocols-2018",
+          "hearts-protocols-2018"
+        ]
+      },
+      {
+        "id": "hearts-bp-when",
+        "hit_at_k": true,
+        "rank": 1,
+        "retrieved_docs": [
+          "hearts-protocols-2018",
+          "hearts-protocols-2018",
+          "who-htn-guideline-2021",
+          "hearts-d-diabetes-2020",
+          "hearts-protocols-2018"
+        ]
+      }
+    ]
+  },
+  "generation": null,
+  "system_prompt_chars": 800
+}

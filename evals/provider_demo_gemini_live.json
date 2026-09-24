@@ -1,0 +1,100 @@
+{
+  "created_at": "2026-09-24T20:23:00.091264+00:00",
+  "pricing_checked": "2026-09-24",
+  "rates": {
+    "openai": {
+      "model": "gpt-4o-mini",
+      "input": 0.15,
+      "output": 0.6,
+      "env": "OPENAI_API_KEY",
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+    },
+    "gemini": {
+      "model": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5,
+      "env": "GOOGLE_API_KEY",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    "anthropic": {
+      "model": "claude-haiku-4-5",
+      "input": 1.0,
+      "output": 5.0,
+      "env": "ANTHROPIC_API_KEY",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+    }
+  },
+  "live": true,
+  "all_live_checks_passed": true,
+  "projected_total_usd": 0.004397,
+  "usage_based_total_usd": 0.001941,
+  "note": "Offline projection uses characters/4 + 100 input tokens and 400 output tokens per independent question. Live costs use API token usage at standard list rates, not invoice amounts. Cache discounts, free tiers, taxes and failed/interrupted requests are not accounted for. No automatic retries. A passed check confirms nonempty streaming output and usage, not answer quality.",
+  "cases": [
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "question": "When should pharmacological treatment for adult hypertension start?",
+      "estimated_input_tokens": 1529,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0014587,
+      "api_usage": {
+        "input_tokens": 1202,
+        "output_tokens": 184
+      },
+      "usage_based_usd": 0.0008206,
+      "status": "passed",
+      "answer": "Based on the WHO guidelines, the initiation of pharmacological treatment for hypertension should follow these criteria:\n\n* **General timing:** Pharmacological treatment should start no later than four weeks following a diagnosis of hypertension [1].\n* **Immediate treatment:** Treatment should be started without delay if the blood pressure level is high (systolic $\\ge$160 mmHg or diastolic $\\ge$100 mmHg) or if there is accompanying evidence of end-organ damage [1].\n* **Laboratory testing caveat:** Tests to screen for comorbidities and secondary hypertension should be obtained when starting therapy, but *only* when testing does not delay or impede the start of treatment [3]. In low-resourced areas or settings where testing is not possible due to costs or lack of access, treatment must not be delayed, and testing can be done subsequently [3].\n\n*This is WHO guideline information, not individualized medical advice.*",
+      "citations": {
+        "citation_count": 2,
+        "invalid_citation_ids": [],
+        "citation_id_precision": 1.0,
+        "citation_source_precision": null,
+        "citation_source_hit": null
+      }
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "question": "What is the HEARTS-D first-line treatment for type 2 diabetes?",
+      "estimated_input_tokens": 1384,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0014152,
+      "api_usage": {
+        "input_tokens": 1174,
+        "output_tokens": 78
+      },
+      "usage_based_usd": 0.0005472,
+      "status": "passed",
+      "answer": "Based on the retrieved sources, the specific first-line treatment regimen for type 2 diabetes is not detailed; the sources only state that treatment protocols are derived from the WHO Package of Essential NCD interventions (WHO-PEN) [4], and mention a type 2 diabetes management protocol derived from WHO-PEN [5]. \n\nThis is WHO guideline information, not individualized medical advice.",
+      "citations": {
+        "citation_count": 2,
+        "invalid_citation_ids": [],
+        "citation_id_precision": 1.0,
+        "citation_source_precision": null,
+        "citation_source_hit": null
+      }
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "question": "How do I connect this assistant to an EHR using FHIR based on these WHO documents?",
+      "estimated_input_tokens": 1743,
+      "max_output_tokens": 400,
+      "projected_usd": 0.0015229,
+      "api_usage": {
+        "input_tokens": 1418,
+        "output_tokens": 59
+      },
+      "usage_based_usd": 0.0005729,
+      "status": "passed",
+      "answer": "Based on the provided WHO sources, there is no information or instruction on how to connect this assistant to an Electronic Health Record (EHR) using FHIR [1, 2, 3, 4, 5]. \n\nThis is WHO guideline information, not individualized medical advice.",
+      "citations": {
+        "citation_count": 5,
+        "invalid_citation_ids": [],
+        "citation_id_precision": 1.0,
+        "citation_source_precision": null,
+        "citation_source_hit": null
+      }
+    }
+  ]
+}

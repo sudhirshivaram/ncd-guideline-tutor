@@ -1,0 +1,46 @@
+# Secrets and local env
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Models / caches
+.cache/
+*.joblib
+
+# Frontend (legacy; UI is Gradio now)
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Hugging Face / torch
+huggingface/
+.huggingface/
+
+# Legacy exported reports; current documentation and evaluation JSON are authoritative
+docs/NCD_Guideline_Copilot_*.docx
+# An interrupted local index build must not be packaged
+indexes/.building
