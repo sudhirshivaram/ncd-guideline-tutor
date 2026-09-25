@@ -10,6 +10,8 @@ pinned: false
 
 # NCD Guideline Tutor
 
+**[Try the live demo on Hugging Face](https://huggingface.co/spaces/sudhirshivaram/ncd-guideline-tutor)** — bring your own LLM API key.
+
 A production-style **Retrieval-Augmented Generation (RAG)** assistant for **noncommunicable disease (NCD)** care in primary health settings. The app answers protocol questions from official **WHO** guidelines and returns **page-level citations**.
 
 This is **clinical decision support**, not a patient chatbot and not a substitute for clinical judgment.
@@ -174,7 +176,9 @@ Three-document retrieval baseline: **Document hit rate@5 = 1.0**, **MRR = 0.964*
 
 ## Hugging Face deployment
 
-The repo is a **Docker** Space (`sdk: docker`, port `7860`). The image installs Python deps (including Gradio), warms embedding/rerank models, and can rebuild the index on first boot if `indexes/` is empty. Users open the Space, paste their own API key, and chat.
+The [public demo](https://huggingface.co/spaces/sudhirshivaram/ncd-guideline-tutor) runs as a **Gradio Space on CPU Basic**. Open the app, select a provider, enter your own API key, and ask a guideline question. The deployed chat and metadata filters have been manually checked by the project owner.
+
+The Space uses its own `app.py` entry point and Gradio README configuration. This repository also supports local Docker use; its Docker metadata should not overwrite the deployed Space’s Gradio configuration.
 
 ### Run the Docker image locally
 
