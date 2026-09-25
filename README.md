@@ -16,6 +16,23 @@ A production-style **Retrieval-Augmented Generation (RAG)** assistant for **nonc
 
 This is **clinical decision support**, not a patient chatbot and not a substitute for clinical judgment.
 
+## Course submission: implemented optional features
+
+This project implements **eight** of the course's optional functionalities (at least five are required):
+
+| Optional functionality | Implementation evidence |
+| --- | --- |
+| Streaming responses | `backend/app/rag/generate.py`, `backend/app/ui/gradio_app.py` |
+| RAG evaluation, dataset, scripts, and README results | `backend/app/eval/`, `evals/ncd_gold_set.json`, saved reports and Evaluation section below |
+| Specific domain other than AI tutoring | WHO hypertension and type 2 diabetes guidance for primary-care teams |
+| At least two external knowledge resources | Three WHO PDFs listed under Knowledge sources and catalogued in `backend/app/rag/metadata.py` |
+| PDF collection/curation and useful parsed data | Included PDFs in `data/`; extraction and cleaning in `backend/app/rag/ingest.py`, chunking in `backend/app/rag/chunking.py` |
+| Reranking | FlashRank cross-encoder in `backend/app/rag/rerank.py` |
+| Hybrid search | Chroma vector search + BM25 with reciprocal rank fusion in `backend/app/rag/retrieve.py` |
+| Metadata filtering | Document, year, NCD type, and document-type filters in retrieval and the Gradio UI |
+
+The course submission file is [`submission.txt`](submission.txt); it includes the public Space, GitHub repository, and optional techniques. Evaluation limitations are documented below and in the source-review report.
+
 ## Business problem
 
 Primary-care teams need reliable access to hypertension and type 2 diabetes treatment guidance. This focused corpus contains **three WHO PDFs**: HEARTS treatment protocols, HEARTS-D, and the adult hypertension guideline. The tutor retrieves relevant passages, reranks them, and generates answers with source references.
@@ -104,6 +121,8 @@ PYTHONPATH=. uvicorn app.main:app --reload --port 8000
 Open [http://127.0.0.1:8000](http://127.0.0.1:8000). Paste an OpenAI, Gemini, or Anthropic key in the left panel. Keys stay in the browser session and are never written on the server.
 
 ## API-key handling
+
+**Required user input: one API key for the selected provider**—an **OpenAI API key**, **Google Gemini API key**, or **Anthropic Claude API key**. All three are not required. No embedding, reranking, or search API key is needed. Gemini is the provider verified in the saved live tests.
 
 - No keys in git. `.env.example` has paths and model names only.
 - The Gradio UI sends the key only for the current request; the server does not persist it.

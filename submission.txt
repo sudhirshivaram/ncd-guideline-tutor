@@ -1,0 +1,34 @@
+NCD Guideline Tutor — Final Course Project
+
+Public Hugging Face Space:
+https://huggingface.co/spaces/sudhirshivaram/ncd-guideline-tutor
+
+Public GitHub repository:
+https://github.com/sudhirshivaram/ncd-guideline-tutor
+
+Project:
+A Python RAG assistant for exploring WHO hypertension and type 2 diabetes guidelines, with page-level citations and a Gradio interface.
+
+Implemented optional functionalities (8):
+1. Streaming responses.
+2. RAG evaluation scripts, dataset, saved results, and README evaluation results.
+3. A healthcare domain application, rather than an AI tutor.
+4. Three external WHO knowledge resources beyond the course materials.
+5. PDF ingestion, cleaning, and chunking for guideline retrieval.
+6. Cross-encoder reranking with FlashRank.
+7. Hybrid semantic/vector and BM25 keyword search with reciprocal rank fusion.
+8. Metadata filtering by document, year, NCD type, and document type.
+
+How to test:
+Open the public Space, select Gemini, enter your own Google Gemini API key, and ask:
+"What does WHO recommend for combination therapy when starting hypertension treatment?"
+Inspect the answer and cited passages. Try a document or year filter and resubmit.
+For an out-of-scope check, ask:
+"How do I connect this assistant to a hospital EHR using HL7 FHIR based on these WHO PDFs?"
+The app should explain that the sources do not contain this information.
+
+API keys and cost:
+Only one key for the selected provider is required: OpenAI, Google Gemini, or Anthropic Claude. Gemini has been live-tested; the other adapters have offline tests. Embeddings, indexing, and reranking run locally without paid APIs. A recorded three-question Gemini demo cost an estimated $0.0019407. The separate 17-question semantic evaluation with 34 generation/judging requests cost an estimated $0.0355481 at recorded list prices. See README for settings and cost assumptions. No credentials are included in this submission.
+
+Evaluation:
+17 questions: 14 answerable and 3 out-of-scope. Retrieval, semantic answer quality, groundedness, citation support, and refusals are evaluated. See evals/semantic_results.json and evals/semantic_review.md. Assistant source review identified retrieval noise and an incomplete protocol summary missed by the automated judge. These limitations are retained transparently; this is an educational portfolio application, not a clinically validated medical device.
