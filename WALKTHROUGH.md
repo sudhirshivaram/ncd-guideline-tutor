@@ -79,6 +79,8 @@ On each turn it yields growing chatbot messages for `token` events and refreshes
 
 Generation reports name token-overlap diagnostics explicitly; they do not claim to measure semantic faithfulness. Source scoring checks inline citations against annotated document/page pairs and excludes missing annotations. Refusal signals are reported separately for answerable and unanswerable cases, with full answers retained for manual review. See README for scoring denominators and limitations.
 
+`app.eval.semantic` adds cached, budget-limited LLM judging of context relevance, answer quality, groundedness, claim/citation support, and refusals. The saved 17-case run cost an estimated $0.0355481. Read `evals/semantic_results.json` together with `evals/semantic_review.md`: assistant source review found retrieval noise and an incomplete insulin-protocol summary that the automated judge missed. These are documented evaluation findings, not clinical validation.
+
 ## Debugging and extending
 
 - Index missing → `503` / `index_ready: false` from `/api/health`. Rebuild with `python -m app.rag.indexing`.

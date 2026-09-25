@@ -160,7 +160,7 @@ Metrics (report schema version 2):
 - **Citation source precision/hit**: compare only used references against acceptable `(doc_id, page)` pairs. Page numbers are 1-based PDF pages. A missing citation scores zero for annotated cases; unannotated cases are `null` and excluded from averages. Each aggregate includes `n_scored` and `n_total`.
 - **Unanswerable abstention signal** and **answerable abstention signal**: separate lexical refusal checks. Review the saved full answers to detect refusals followed by invented advice; these are not correctness judgments.
 
-All **14 answerable cases** now have PDF-text-verified page annotations (**17 source references**); the three unanswerable cases intentionally have none. Each annotation includes an evidence excerpt, and source PDF SHA-256 fingerprints detect document changes. These annotations were reviewed by the assistant, not an independent clinical expert. They identify known supporting pages rather than an exhaustive set of valid citations; a hit can support only part of a multi-part question. Source precision measures agreement with these annotations, so valid but unlisted pages can lower it. Citation-location agreement does not prove claim support, and PDF extraction or imperfect heading detection can still affect context quality. Semantic context relevance, groundedness, and answer correctness require further reviewed annotations or judging.
+All **14 answerable cases** now have PDF-text-verified page annotations (**17 source references**); the three unanswerable cases intentionally have none. Each annotation includes an evidence excerpt, and source PDF SHA-256 fingerprints detect document changes. These annotations were reviewed by the assistant, not an independent clinical expert. They identify known supporting pages rather than an exhaustive set of valid citations; a hit can support only part of a multi-part question. Source precision measures agreement with these annotations, so valid but unlisted pages can lower it. Citation-location agreement does not prove claim support, and PDF extraction or imperfect heading detection can still affect context quality. The semantic evaluation below adds source-based judging and a separate assistant review; neither replaces clinical validation.
 
 Save the full report, including per-case answers and citations for generation runs:
 
@@ -173,6 +173,34 @@ PYTHONPATH=. python -m unittest discover -s tests -v
 Generation uses the selected provider's environment variable (`OPENAI_API_KEY`, `GOOGLE_API_KEY`, or `ANTHROPIC_API_KEY`). Supply a matching `--model` when selecting a non-OpenAI provider. Explicit `filters` apply consistently to retrieval and generation; the gold set's `ncd_type` field is a descriptive label.
 
 Three-document retrieval baseline: **Document hit rate@5 = 1.0**, **MRR = 0.964** on **14 answerable questions**, using hybrid retrieval and reranking over **560 page-bounded chunks**. Every chunk was checked against text on its cited PDF page. The [saved report](evals/three_document_retrieval.json) includes per-question results and supplies the UI baseline; it is not a live measurement. Rerun evaluation after corpus or retrieval changes. Interpret retrieval scores as “did we surface the right guideline?” Generation lexical scores are comparative, not clinical validation.
+
+### Semantic evaluation and source review
+
+The [saved semantic report](evals/semantic_results.json) evaluates all **17 questions** with separate Gemini generation and judging calls. The judge scores **context relevance, answer quality, groundedness, citation support, and refusal correctness** from 0 to 2. Answer quality uses annotated PDF reference pages; groundedness and citation support use only passages actually retrieved. Pure refusals have `null` citation-support scores, excluded from that metric's denominator. Each case retains its answer, retrieved passages, reference pages, scores, rationale, citation checks, and token usage.
+
+The run used **34 requests**, **80,177 input tokens**, and **4,598 output tokens**: **$0.0355481** at the recorded Gemini list prices, below the evaluator's **$0.10 estimated budget**. This is a usage-based estimate, not a billing invoice.
+
+| Automated metric | Mean (0–2) | Cases scored |
+| --- | ---: | ---: |
+| Context relevance, all cases | 1.647 | 17 |
+| Answer quality | 2.000 | 17 |
+| Groundedness | 2.000 | 17 |
+| Citation support | 2.000 | 14 |
+| Correct refusal, unanswerable cases | 2.000 | 3 |
+
+**The judge was too generous on the reviewed sample.** The [assistant source review](evals/semantic_review.md) found mixed retrieval for several diabetes questions and an incomplete insulin-protocol summary despite full automated scores. Read these findings alongside the table; these scores do not establish perfect accuracy. All three out-of-scope questions received refusals. The same model generated and judged answers in separate calls, and the small development set is not an independent clinical benchmark.
+
+From the project root:
+
+```bash
+# Cache-only replay: no provider calls. Requires the original local cache.
+PYTHONPATH=backend .venv/bin/python -m app.eval.semantic --output /tmp/ncd-semantic-replay.json
+
+# Explicit paid run; GOOGLE_API_KEY is loaded from the ignored local .env.
+PYTHONPATH=backend .venv/bin/python -m app.eval.semantic --live
+```
+
+Completed responses are cached in ignored `.cache/semantic-eval/`, keyed by the model, full prompt, temperature, and output cap. A fresh checkout can inspect the committed report without a key; replay needs a local cache or an explicit live run. Paid requests are sequential, token-capped, and never automatically retried. Prior cached spending and reservations for interrupted requests count toward the estimated budget. Missing usage or invalid judge output stops evaluation. Budget estimates are conservative guards, not a provider-side billing limit. Corpus and gold-set hashes identify the evaluated data. The run uses five retrieved passages and a 700-token answer cap; deployed UI settings can differ.
 
 ## Hugging Face deployment
 
@@ -201,7 +229,7 @@ The build warms the embedding model by encoding a sample string and caches Flash
 - MiniLM embeddings miss some long-range clinical nuance; a larger embedding model would help.
 - Table-heavy WHO pages can still fragment.
 - No EHR / FHIR integration, no multilingual UI yet.
-- Possible extensions: country-adapted PEN protocols, image/chart parsing, multilingual retrieval, stronger LLM-as-judge evals.
+- Possible extensions: country-adapted PEN protocols, image/chart parsing, multilingual retrieval, independent expert review and held-out evaluation questions.
 
 ## License
 
